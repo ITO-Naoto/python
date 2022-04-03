@@ -1,0 +1,38 @@
+# csv作成を自動化する。午前10時に定期実行
+on:
+  schedule:
+    - cron: '0 1 * * *' # cronで定期実行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 最新のubuntu環境で下記のジョブを実行
+    steps:
+      - uses: actions/checkout@v2 # おまじない
+
+      - name: Setup python # ワークフローのセクションごとに設定する名前。特に設定する必要はないが、どこでエラーが起きているかを把握する為にも設定しておいた方が良い。
+        uses: actions/setup-python@v2 # Pythonのセットアップ
+        with:
+          python-version: "3.9" # Pythonのバージョン指定
+
+      - name: Install dependencies # Pythonの依存環境のインストール
+        run: | #このような書き方で複数行を一気に実行することができる。
+          python -m pip install --upgrade pip
+          import datetime as mdates
+          import datetime
+          import pandas as pd
+          import numpy as np
+          import csv
+          import os
+
+      - name: Run covid19-t.py # Pythonファイルの実行
+        run: |
+          python main.py
+
+      - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
+        run: |
+          git config user.name "ITO Naoto"
+          git config user.email "80243646+ITO-Naoto@users.noreply.github.com"
+          git add .
+          git commit -m "Commit Message"
+          git pull
+          git push origin master
