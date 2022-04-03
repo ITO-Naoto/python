@@ -24,7 +24,7 @@ jobs:
        
       - name: Run covid19-t.py # Pythonファイルの実行
         run: |
-          python main.py
+          python .py
 
       - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
         run: |
