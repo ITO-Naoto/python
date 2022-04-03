@@ -21,9 +21,7 @@ jobs:
           pip install datetime 
           pip install pandas 
           pip install numpy 
-          pip install csv
-          pip install os
-
+       
       - name: Run covid19-t.py # Pythonファイルの実行
         run: |
           python main.py
