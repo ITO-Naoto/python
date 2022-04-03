@@ -1,13 +1,10 @@
-# パッケージ読み込み
+# csv作成用
 import datetime as mdates
 import datetime
-from nturl2path import pathname2url
-import matplotlib as plt
 import pandas as pd
 import numpy as np
 import csv
 import os
-
 # csv作成
 path1 = os.path.dirname(__file__)
 path2 = "covid19-tottori.csv"
@@ -26,9 +23,7 @@ add = np.array([[t_now,tottori,kurayosi,yonago,sum]]).reshape(1, 5)
 df_add = pd.DataFrame(add, columns=['Date','鳥取市保健所','倉吉保健所','米子保健所','Sum'])
 #csvに書き込み
 with open(path, 'a',encoding='utf-8_sig',newline="") as f:
-    writer = csv.writer(f, lineterminator = '\r')
+    writer = csv.writer(f, lineterminator = '\n')
     for ary in df_add.values:
         writer.writerow(ary)
 f.close()
-
-# グラフを作成
