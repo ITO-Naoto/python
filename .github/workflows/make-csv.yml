@@ -1,5 +1,6 @@
 # csv作成を自動化する。午前10時に毎日定期実行
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 1 * * *' # cronで定期実行
 
