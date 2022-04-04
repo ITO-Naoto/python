@@ -34,4 +34,4 @@ jobs:
           git add .
           git commit -m "csv update"
           git pull
-          git push -f origin master
+          git push -f origin main
