@@ -33,6 +33,9 @@ plt.title("鳥取県コロナ 地区ごとの推移", fontsize=15)
 plt.xlabel("")
 plt.ylabel("感染者数")
 plt.legend()
+path3 = os.path.join('Data', 'fig', 'graph', "tottori-area.svg")
+figpath1  = os.path.join(path1, path3)
+plt.savefig(figpath1, bbox_inches="tight")
 
 # グラフ作成:2/2
 maxt = df['Sum'].max()
@@ -83,4 +86,6 @@ ax2 = ax.twinx()
 # 位置をｙ軸の最大値
 ax2.set_ylim(ax.get_ylim())
 ax2.set_yticks([y[-1]])
-plt.show()
+path4 = os.path.join('Data', 'fig', 'graph', "tottori.svg")
+figpath2  = os.path.join(path1, path4)
+plt.savefig(figpath2, bbox_inches="tight")
