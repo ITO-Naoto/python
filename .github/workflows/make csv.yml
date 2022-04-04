@@ -21,6 +21,7 @@ jobs:
           pip install datetime 
           pip install pandas 
           pip install numpy 
+          pip install lxml
        
       - name: Run covid19-t.py # Pythonファイルの実行
         working-directory: covid19/script
