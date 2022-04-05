@@ -48,7 +48,7 @@ ax.bar(t, data2, bottom=data1, label="中部", width=DAY, align='edge', edgecolo
 ax.bar(t, data3, bottom=data1 + data2, label="西部", width=DAY, align='edge', edgecolor='black')
 ax.set_xlim(t1, t2)
 ax.set_title("地区ごと感染者数の推移", fontsize=15, loc='left', pad=30)
-fig.text(0.9, 0.89, '更新日時: ' + dt_now_str, horizontalalignment='right')
+fig.text(0.9, 0.89, '更新日時: ' + dt_now_str + '(JST)', horizontalalignment='right')
 # ax.xlabel("")
 # ax.ylabel("感染者数")
 ax.legend()
@@ -82,7 +82,7 @@ ax.set_xlim(t1, t2)
 # ここまで
 
 # グラフへ作成に日時を追加。dt_now_strを代入。(x,y)=(0.9,0.89)の右側へテキスト挿入
-fig.text(0.9, 0.89, '更新日時: ' + dt_now_str, horizontalalignment='right')
+fig.text(0.9, 0.89, '更新日時: ' + dt_now_str +'(JST)', horizontalalignment='right')
 # 凡例を追加。上部左
 ax.legend(['陽性者数'], loc='upper left')
 # グラフタイトルを追加。
