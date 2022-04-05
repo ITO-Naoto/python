@@ -10,5 +10,6 @@
 ![fig2](covid19/Data/fig/graph/tottori-area.svg)
 
 ### 参考にさせていただいたもの
-* https://oku.edu.mie-u.ac.jp/~okumura/python/COVID-19.html
-* https://oku.edu.mie-u.ac.jp/~okumura/python/code/COVID-tokyo.py
+* 奥村先生のページ
+   - https://oku.edu.mie-u.ac.jp/~okumura/python/COVID-19.html
+   - https://oku.edu.mie-u.ac.jp/~okumura/python/code/COVID-tokyo.py
