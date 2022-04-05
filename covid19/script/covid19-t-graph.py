@@ -8,6 +8,7 @@ import numpy as np
 import os
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import pytz
 import japanize_matplotlib
 # csvのパスを探す。
 path0 = os.path.dirname(__file__)
@@ -27,7 +28,7 @@ t2 = t[-1] + DAY
 locator = mdates.AutoDateLocator()
 formatter = mdates.ConciseDateFormatter(locator)
 # 現在時刻を取得，dt_nowに格納
-dt_now = datetime.datetime.now()
+dt_now = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 dt_now_str = dt_now.strftime('%Y/%m/%d %H:%M:%S')
 
 # グラフ作成：1/2
