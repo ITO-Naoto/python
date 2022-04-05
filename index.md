@@ -5,7 +5,6 @@
 ## 感染者数の推移
 
 ![fig1](covid19/Data/fig/graph/tottori.svg)
-## 地区ごとの感染者数の推移
-地区ごとの集計は，2022年２月1日から
+## 地区ごとの感染者数の推移（地区ごとの集計は，2022年２月1日から地区ごとの集計は，2022年２月1日から）
 
 ![fig2](covid19/Data/fig/graph/tottori-area.svg)
