@@ -1,10 +1,9 @@
 # csv作成を自動化する。午前10時に毎日定期実行
 on:
   workflow_dispatch:
-  schedule:
-    - cron: push:
-             paths:
-              'covid19/Data/csv/covid19-tottori.csv'
+  push:
+    paths:
+      'covid19/Data/csv/covid19-tottori.csv'
 
 jobs:
   build:
