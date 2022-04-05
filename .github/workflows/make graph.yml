@@ -1,0 +1,39 @@
+# csv作成を自動化する。午前10時に毎日定期実行
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      'covid19/Data/csv/covid19-tottori.csv'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 最新のubuntu環境で下記のジョブを実行
+    steps:
+      - uses: actions/checkout@v2 # おまじない
+
+      - name: Setup python # ワークフローのセクションごとに設定する名前。特に設定する必要はないが、どこでエラーが起きているかを把握する為にも設定しておいた方が良い。
+        uses: actions/setup-python@v2 # Pythonのセットアップ
+        with:
+          python-version: "3.9" # Pythonのバージョン指定
+
+      - name: Install dependencies # Pythonの依存環境のインストール
+        run: | #このような書き方で複数行を一気に実行することができる。
+          python -m pip install --upgrade pip
+          pip install datetime 
+          pip install pandas 
+          pip install numpy 
+          pip install lxml
+          pip install matplotlib
+          pip install japanize-matplotlib
+      - name: Run covid19-t-graph.py # Pythonファイルの実行
+        working-directory: covid19/script
+        run: |
+          python covid19-t-graph.py
+      - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
+        run: |
+          git config user.name "ITO Naoto"
+          git config user.email "80243646+ITO-Naoto@users.noreply.github.com"
+          git add .
+          git commit -m "graph update"
+          git pull
+          git push origin main
