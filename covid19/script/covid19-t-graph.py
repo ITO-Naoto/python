@@ -43,7 +43,6 @@ data0 = df2['Sum']
 data1 = df2['東部']
 data2 = df2['中部']
 data3 = df2['西部']
-ax.bar(t, data0, label='総計', width=DAY, align="edge", edgecolor='black')
 ax.bar(t, data1, label="東部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data2, bottom=data1, label="中部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data3, bottom=data1 + data2, label="西部", width=DAY, align='edge', edgecolor='black')
