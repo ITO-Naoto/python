@@ -22,6 +22,7 @@ df = pd.read_csv(csvpath, parse_dates=['Date'], header=0)
 t = df['Date'].values
 y = df['Sum'].values
 DAY = pd.to_timedelta(1, 'day')
+t0 = pd.to_datetime('2022-02-22')
 t1 = pd.to_datetime('2022-02-01')
 t2 = t[-1] + DAY
 # グラフをいい感じにする。
@@ -46,7 +47,7 @@ ax.bar(t, data0, label='総計', width=DAY, align="edge", edgecolor='black')
 ax.bar(t, data1, label="東部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data2, bottom=data1, label="中部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data3, bottom=data1 + data2, label="西部", width=DAY, align='edge', edgecolor='black')
-ax.set_xlim(t1, t2)
+ax.set_xlim(t0, t2)
 ax.set_title("地区ごと感染者数の推移", fontsize=15, loc='left', pad=30)
 fig.text(0.9, 0.89, '更新日時: ' + dt_now_str + '(JST)', horizontalalignment='right')
 # ax.xlabel("")
