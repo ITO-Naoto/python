@@ -4,11 +4,8 @@
 ここにある内容について、いかなる責任も負えません。ご利用になられる際は、ご了承ください。
 ## 感染者数の推移
 
-<<<<<<< HEAD
 ![fig1](Data/fig/graph/tottori.svg)
-=======
-![fig1](covid19/Data/fig/graph/tottori-area.svg)
->>>>>>> a74f03083a64f8d28c2a28c2ff049cd970eecb79
+
 ## 地区ごとの感染者数の推移（地区ごとの集計は，2022年２月22日から）
 
 ![fig2](Data/fig/graph/tottori-area.svg)
