@@ -47,6 +47,11 @@ ax.bar(t, data0, label='総計', width=DAY, align="edge", edgecolor='black')
 ax.bar(t, data1, label="東部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data2, bottom=data1, label="中部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data3, bottom=data1 + data2, label="西部", width=DAY, align='edge', edgecolor='black')
+# 右側へ今日の感染者のラベルをつける。
+ax2 = ax.twinx()
+# 位置をｙ軸の最大値
+ax2.set_ylim(ax.get_ylim())
+ax2.set_yticks([y[-1]])
 ax.set_xlim(t0, t2)
 ax.set_title("地区ごと感染者数の推移", fontsize=15, loc='left', pad=30)
 fig.text(0.9, 0.89, '更新日時: ' + dt_now_str + '(JST)', horizontalalignment='right')
