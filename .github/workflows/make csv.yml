@@ -22,11 +22,18 @@ jobs:
           pip install pandas 
           pip install numpy 
           pip install lxml
+          pip install matplotlib
+          pip install japanize-matplotlib
        
       - name: Run covid19-t.py # Pythonファイルの実行
         working-directory: covid19/script
         run: |
           python covid19-t.py
+      - name: Run covid19-t-graph.py # Pythonファイルの実行
+        working-directory: covid19/script
+        run: |
+          python covid19-t-graph.py
+          
       - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
         run: |
           git config user.name "ITO Naoto"
