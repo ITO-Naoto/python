@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      'python/covid19/Data/csv/covid19-tottori.csv'
+      - 'python/covid19/Data/csv/covid19-tottori.csv'
 
 jobs:
   build:
