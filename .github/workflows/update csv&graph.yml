@@ -1,4 +1,4 @@
-# csv作成を自動化する。午前10時に毎日定期実行
+# csvとグラフ更新を自動化する。午前10時に毎日定期実行
 on:
   workflow_dispatch:
   schedule:
@@ -39,6 +39,6 @@ jobs:
           git config user.name "ITO Naoto"
           git config user.email "80243646+ITO-Naoto@users.noreply.github.com"
           git add .
-          git commit -m "csv update"
+          git commit -m "csv&graph update"
           git pull
           git push origin main
