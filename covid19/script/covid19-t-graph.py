@@ -10,6 +10,7 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import pytz
 import japanize_matplotlib
+
 # csvのパスを探す。
 path0 = os.path.dirname(__file__)
 path1 = os.path.dirname(path0)
@@ -25,24 +26,28 @@ DAY = pd.to_timedelta(1, 'day')
 t0 = pd.to_datetime('2022-02-22')
 t1 = pd.to_datetime('2022-02-01')
 t2 = t[-1] + DAY
-# グラフをいい感じにする。
+
 locator = mdates.AutoDateLocator()
 formatter = mdates.ConciseDateFormatter(locator)
+
 # 現在時刻を取得，dt_nowに格納
 dt_now = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 dt_now_str = dt_now.strftime('%Y/%m/%d %H:%M:%S')
 
-# グラフ作成：1/2
+
+# 地区ごとのプロット
 
 # 上の設定を代入
 fig, ax = plt.subplots()
 ax.xaxis.set_major_locator(locator)
 ax.xaxis.set_major_formatter(formatter)
 df2 = df.fillna(0)
+
 data0 = df2['Sum']
 data1 = df2['東部']
 data2 = df2['中部']
 data3 = df2['西部']
+
 ax.bar(t, data1, label="東部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data2, bottom=data1, label="中部", width=DAY, align='edge', edgecolor='black')
 ax.bar(t, data3, bottom=data1 + data2, label="西部", width=DAY, align='edge', edgecolor='black')
@@ -54,14 +59,14 @@ ax2.set_yticks([y[-1]])
 ax.set_xlim(t0, t2)
 ax.set_title("地区ごと感染者数の推移", fontsize=15, loc='left', pad=30)
 fig.text(0.9, 0.89, '更新日時: ' + dt_now_str + '(JST)', horizontalalignment='right')
-# ax.xlabel("")
-# ax.ylabel("感染者数")
+
 ax.legend()
 path3 = os.path.join('Data', 'fig', 'graph', "tottori-area.svg")
 figpath1 = os.path.join(path1, path3)
 fig.savefig(figpath1, bbox_inches="tight")
 
-# グラフ作成:2/2
+ax.clear()
+# 総計のプロット
 maxt = df['Sum'].max()
 maxt_line = df['Sum'].idxmax()
 maxt_date = df.iloc[maxt_line, 0].strftime('%Y/%m/%d')
@@ -100,3 +105,29 @@ ax2.set_yticks([y[-1]])
 path4 = os.path.join('Data', 'fig', 'graph', "tottori.svg")
 figpath2 = os.path.join(path1, path4)
 fig.savefig(figpath2, bbox_inches="tight")
+
+ax.clear()
+ax2.set_yticks([])
+ax.xaxis.set_major_locator(locator)
+ax.xaxis.set_major_formatter(formatter)
+
+def rt(i, interval):
+    if i - 6 - interval < 0:
+        return np.nan
+    mean1 = y[i-6:i+1].mean()
+    mean2 = y[i-6-interval:i+1-interval].mean()
+    if mean2 == 0:
+        return np.nan
+    return (mean1 / mean2) ** (5/interval)
+
+for interval in range(1, 8):
+    a = np.array([rt(i, interval) for i in range(len(t))])
+    ax.plot(t[t >= t1], a[t >= t1], label=interval)
+
+ax.axhline(1, color='black', linewidth=1, zorder=-1)
+ax.set_xlim(t1, t2)
+ax.legend()
+
+path5 = os.path.join('Data', 'fig', 'graph', "tottori-rt.svg")
+figpath3 = os.path.join(path1, path5)
+fig.savefig(figpath3, bbox_inches="tight")
