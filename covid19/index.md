@@ -10,6 +10,11 @@
 
 ![fig2](Data/fig/graph/tottori-area.svg)
 
+## 実効再生産数
+
+![fig2](Data/fig/graph/tottori-rt.svg)
+
+
 ### 参考にさせていただいたもの
 * 奥村先生のページ
    - https://oku.edu.mie-u.ac.jp/~okumura/python/COVID-19.html
