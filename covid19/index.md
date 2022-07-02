@@ -1,6 +1,6 @@
 # Python×COVID-19
 このページでは，Pythonを用いて鳥取県の新型コロナウイルス感染者数を毎日午前10時（JST)に自動で取得し,
-[covid19-tottori.csv]( https://github.com/ITO-Naoto/python/blob/main/covid19/Data/csv/covid19-tottori.csv　"covid19-tottori.csv")を作成し日々の推移をグラフを作成し公開しています。
+[covid19-tottori.csv](https://github.com/ITO-Naoto/python/blob/main/covid19/Data/csv/covid19-tottori.csv　"covid19-tottori.csv")を作成し日々の推移をグラフを作成し公開しています。
 
 実行環境の都合につき更新が遅れる場合があります。
 
@@ -15,11 +15,9 @@
 
 ## 実効再生産数
 
-:::note info
-実行再生産数とは
+### 実行再生産数とは
 
 一人のコロナウィルス感染者がつぎに平均で何人にうつすかをしめす指標ことで実効再生産数が1を超えているときは，増加傾向であることを示しています。
-:::
 
 
 ![fig2](Data/fig/graph/tottori-rt.svg)
