@@ -1,6 +1,6 @@
 # Python×COVID-19
 このページでは，Pythonを用いて鳥取県の新型コロナウイルス感染者数を毎日午前10時（JST)に自動で取得し,
-[covid19-tottori.csv](Data/csv/covid19-tottori.csv　"covid19-tottori.csv")を作成し日々の推移をグラフを作成し公開しています。
+[covid19-tottori.csv](covid19/Data/csv/covid19-tottori.csv，"covid19-tottori.csv")を作成し日々の推移をグラフを作成し公開しています。
 
 実行環境の都合につき更新が遅れる場合があります。
 
