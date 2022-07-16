@@ -2,7 +2,7 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *' # cronで定期実行
+    - cron: '0 2 * * *' # cronで定期実行
 
 jobs:
   build:
