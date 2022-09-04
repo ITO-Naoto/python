@@ -10,7 +10,7 @@ path0 = os.path.dirname(__file__)
 path1 = os.path.dirname(path0)
 path2 = os.path.join('Data', 'csv', "covid19-tottori.csv")
 path  = os.path.join(path1, path2)
-url = 'https://www.pref.tottori.lg.jp/item/1248786.htm#itemid1248786'
+url = 'https://www.pref.tottori.lg.jp/item/1298008.htm'
 data = pd.read_html(url, header=1)
 data1 = data[0].head(1)
 tottori = data1['鳥取市保健所'].iloc[-1]
