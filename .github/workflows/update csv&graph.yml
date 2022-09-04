@@ -1,8 +1,8 @@
-# csvとグラフ更新を自動化する。午前10時に毎日定期実行
+# csvとグラフ更新を自動化する。15時に毎日定期実行
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 2 * * *' # cronで定期実行
+    - cron: '0 6 * * *' # cronで定期実行
 
 jobs:
   build:
