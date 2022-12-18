@@ -2,7 +2,7 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *' # cronで定期実行
+    - cron: '0 7 * * *' # cronで定期実行
 
 jobs:
   build:
@@ -25,14 +25,10 @@ jobs:
           pip install matplotlib
           pip install japanize-matplotlib
        
-      - name: Run covid19-t.py # Pythonファイルの実行
+      - name: Run covid19-tottori-mhlw.py # Pythonファイルの実行
         working-directory: covid19/script
         run: |
-          python covid19-t.py
-      - name: Run covid19-t-graph.py # Pythonファイルの実行
-        working-directory: covid19/script
-        run: |
-          python covid19-t-graph.py
+          python covid19-tottori-mhlw.py
           
       - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
         run: |
