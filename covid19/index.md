@@ -1,8 +1,7 @@
 # Python×COVID-19
-このページでは，Pythonを用いて鳥取県の新型コロナウイルス感染者数を毎日15時（JST)[^1]に自動で取得し,
-[covid19-tottori.csv](https://github.com/ITO-Naoto/python/blob/main/covid19/Data/csv/covid19-tottori.csv)を作成し日々の推移をグラフを作成し公開しています。
+このページでは，Pythonを用いて鳥取県の新型コロナウイルス感染者数を毎日16時（JST)[^1]に自動で取得し,日々の推移をグラフを作成し公開しています。
 
-[^1]: 2022年9月3日から公表時間が11時から15時に変更されました。
+[^1]: 厚生労働省より取得：https://covid19.mhlw.go.jp/public/opendata/newly_confirmed_cases_daily.csv
 
 実行環境の都合につき更新が遅れる場合があります。
 
@@ -11,9 +10,6 @@
 
 ![fig1](Data/fig/graph/tottori.svg)
 
-## 地区ごとの感染者数の推移（地区ごとの集計は，2022年２月22日から）
-
-![fig2](Data/fig/graph/tottori-area.svg)
 
 ## 実効再生産数
 
